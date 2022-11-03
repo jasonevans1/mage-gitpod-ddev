@@ -1,0 +1,96 @@
+image: drud/ddev-gitpod-base:20221018
+
+tasks:
+  - name: ddev-gitpod-launcher
+    env:
+      MAGENTO_ADMIN_USERNAME: "admin"
+      MAGENTO_ADMIN_PASSWORD: "password1"
+      MAGENTO_EDITION: "community"
+      MAGENTO_VERSION: "2.4.5-p1"
+      INSTALL_MAGENTO: "YES"
+      INSTALL_SAMPLE_DATA: "YES"
+      MAGENTO_COMPOSER_AUTH_USER: "64229a8ef905329a184da4f174597d25"
+      MAGENTO_COMPOSER_AUTH_PASS: "a0df0bec06011c7f1e8ea8833ca7661e"
+    init: |
+      cd /tmp && ddev config --auto
+      ddev debug download-images
+      ddev delete -Oy tmp
+    command: |
+      export DDEV_NONINTERACTIVE=true
+      cd ${GITPOD_REPO_ROOT}
+      chmod +x .gitpod/start_repo.sh .gitpod/install_database.sh
+      .gitpod/start_repo.sh
+      test ! -f ${GITPOD_REPO_ROOT}/.gitpod/db-installed.flag && ${GITPOD_REPO_ROOT}/.gitpod/install_database.sh;
+
+vscode:
+  extensions:
+    # PHP extension
+    - felixfbecker.php-debug
+
+    # Bash extensions
+    - timonwong.shellcheck
+    - rogalmic.bash-debug
+
+jetbrains:
+  phpstorm:
+    plugins:
+      - com.magento.idea.magento2plugin
+
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    main: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+    # add a check to pull requests (defaults to true)
+    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: false
+    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    addBadge: true
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: true
+
+ports:
+  # Ignore direct-build https port
+  - port: 2222
+    onOpen: ignore
+  - port: 3306
+    onOpen: ignore
+  # Used by projector
+  - port: 6942
+    onOpen: ignore
+  # Direct-connect ddev-webserver port that is the main port
+  - port: 8080
+    onOpen: ignore
+  # Currently un-notified and unsupported mailhog http port
+  - port: 8025
+    onOpen: ignore
+  # Currently un-notified and unsupported mailhog https port
+  - port: 8026
+    onOpen: ignore
+  # Currently un-notified and unsupported phpmyadmin http port
+  - port: 8036
+    onOpen: ignore
+  # Currently un-notified and unsupported phpmyadmin https port
+  - port: 8037
+    onOpen: ignore
+  # router http port that we're ignoring.
+  - port: 8888
+    onOpen: ignore
+  # router https port that we're ignoring.
+  - port: 8889
+    onOpen: ignore
+  # xdebug port
+  - port: 9000
+    onOpen: ignore
+  # projector port
+  - port: 9999
+
+gitConfig:
+  alias.up: pull --rebase --autostash

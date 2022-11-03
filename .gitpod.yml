@@ -2,21 +2,19 @@ image: drud/ddev-gitpod-base:20221018
 
 tasks:
   - name: ddev-gitpod-launcher
-    env:
-      MAGENTO_ADMIN_USERNAME: "admin"
-      MAGENTO_ADMIN_PASSWORD: "password1"
-      MAGENTO_EDITION: "community"
-      MAGENTO_VERSION: "2.4.5-p1"
-      INSTALL_MAGENTO: "YES"
-      INSTALL_SAMPLE_DATA: "YES"
-      MAGENTO_COMPOSER_AUTH_USER: "64229a8ef905329a184da4f174597d25"
-      MAGENTO_COMPOSER_AUTH_PASS: "a0df0bec06011c7f1e8ea8833ca7661e"
     init: |
       cd /tmp && ddev config --auto
       ddev debug download-images
       ddev delete -Oy tmp
     command: |
-      export DDEV_NONINTERACTIVE=true
+      export DDEV_NONINTERACTIVE=true 
+      export MAGENTO_ADMIN_USERNAME="admin" MAGENTO_ADMIN_PASSWORD="password1"
+      export MAGENTO_EDITION="community"
+      export MAGENTO_VERSION="2.4.5-p1"
+      export INSTALL_MAGENTO="YES"
+      export INSTALL_SAMPLE_DATA="YES"
+      export MAGENTO_COMPOSER_AUTH_USER="64229a8ef905329a184da4f174597d25"
+      export MAGENTO_COMPOSER_AUTH_PASS="a0df0bec06011c7f1e8ea8833ca7661e"
       cd ${GITPOD_REPO_ROOT}
       chmod +x .gitpod/start_repo.sh .gitpod/install_database.sh
       .gitpod/start_repo.sh

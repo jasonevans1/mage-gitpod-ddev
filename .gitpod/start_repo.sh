@@ -16,10 +16,10 @@ if [ -f composer.json ]; then
   ddev start
   ddev composer install
 else
-  composer config -g -a http-basic.repo.magento.com ${MAGENTO_COMPOSER_AUTH_USER} ${MAGENTO_COMPOSER_AUTH_PASS}
-  composer create-project --no-interaction --no-progress --repository-url=https://repo.magento.com/ magento/project-${MAGENTO_EDITION}-edition=${MAGENTO_VERSION} magento2
-  cd magento2 && cp -avr .* ${GITPOD_REPO_ROOT};
-  cd ${GITPOD_REPO_ROOT} && rm -r -f magento2 && git checkout -- .gitignore;
+  ddev composer config -g -a http-basic.repo.magento.com ${MAGENTO_COMPOSER_AUTH_USER} ${MAGENTO_COMPOSER_AUTH_PASS}
+  ddev composer create-project --no-interaction --no-progress --repository-url=https://repo.magento.com/ magento/project-${MAGENTO_EDITION}-edition=${MAGENTO_VERSION} magento2
+  ddev exec cd magento2 && cp -avr .* ${GITPOD_REPO_ROOT};
+  ddev exec cd ${GITPOD_REPO_ROOT} && rm -r -f magento2 && git checkout -- .gitignore;
 fi
 
 if [ ! -f bin/magerun2 ]; then

@@ -28,4 +28,4 @@
 !/.gitpod
 !/.gitpod/*
 !/.ddev
-!/.ddev/*
+!/.ddev/config.yaml

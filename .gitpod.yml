@@ -7,14 +7,12 @@ tasks:
       ddev debug download-images
       ddev delete -Oy tmp
     command: |
-      export DDEV_NONINTERACTIVE=true 
+      export DDEV_NONINTERACTIVE=true
       export MAGENTO_ADMIN_USERNAME="admin" MAGENTO_ADMIN_PASSWORD="password1"
       export MAGENTO_EDITION="community"
       export MAGENTO_VERSION="2.4.5-p1"
       export INSTALL_MAGENTO="YES"
       export INSTALL_SAMPLE_DATA="YES"
-      export MAGENTO_COMPOSER_AUTH_USER="64229a8ef905329a184da4f174597d25"
-      export MAGENTO_COMPOSER_AUTH_PASS="a0df0bec06011c7f1e8ea8833ca7661e"
       cd ${GITPOD_REPO_ROOT}
       chmod +x .gitpod/start_repo.sh
       .gitpod/start_repo.sh

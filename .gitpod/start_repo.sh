@@ -28,7 +28,6 @@ fi
 
 ddev get drud/ddev-redis
 ddev get drud/ddev-elasticsearch
-ddev get drud/ddev-cron
 
 # This won't be required in ddev v1.18.2+
 printf "host_webserver_port: 8080\nhost_https_port: 2222\nhost_db_port: 3306\nhost_mailhog_port: 8025\nhost_phpmyadmin_port: 8036\nbind_all_interfaces: true\n" >.ddev/config.gitpod.yaml

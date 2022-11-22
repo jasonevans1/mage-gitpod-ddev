@@ -8,7 +8,7 @@ url="https://8080-"$url"/"
 cd ${GITPOD_REPO_ROOT}
 
 if [ "${INSTALL_MAGENTO}" = "YES" ]; then
-  ddev magento setup:install --db-name='db' --db-user='db' --db-password='db' --base-url=$url --backend-frontname='admin' --admin-user=$MAGENTO_ADMIN_USERNAME --admin-password=$MAGENTO_ADMIN_PASSWORD --admin-email=$GITPOD_GIT_USER_EMAIL --admin-firstname='Admin' --admin-lastname='User' --use-rewrites='1' --use-secure='1' --base-url-secure=$url --use-secure-admin='1' --language='en_US' --db-host='db' --cleanup-database --timezone='America/Chicago' --currency='USD' --session-save='redis' --search-engine='elasticsearch7' --elasticsearch-host='elasticsearch' --elasticsearch-port='9200';
+  ddev magento setup:install --db-name='db' --db-user='db' --db-password='db' --base-url=$url --backend-frontname='admin' --admin-user=$MAGENTO_ADMIN_USERNAME --admin-password=$MAGENTO_ADMIN_PASSWORD --admin-email=$GITPOD_GIT_USER_EMAIL --admin-firstname='Admin' --admin-lastname='User' --use-rewrites='1' --use-secure='1' --base-url-secure=$url --use-secure-admin='1' --language='en_US' --db-host='db' --cleanup-database --timezone='America/Chicago' --currency='USD' --session-save='files' --search-engine='elasticsearch7' --elasticsearch-host='elasticsearch' --elasticsearch-port='9200';
 fi
 
 if [ "${INSTALL_SAMPLE_DATA}" = "YES" ]; then
@@ -31,9 +31,9 @@ ddev magento config:set web/cookie/cookie_path "/"
 ddev magento config:set web/cookie/cookie_domain ".gitpod.io"
 ddev magento setup:store-config:set --base-url="${url}"
 ddev magento setup:store-config:set --base-url-secure="${url}"
-ddev magento setup:config:set --session-save=redis --session-save-redis-host=redis --session-save-redis-log-level=3 --session-save-redis-db=0 --session-save-redis-port=6379;
-ddev magento setup:config:set --cache-backend=redis --cache-backend-redis-server=redis --cache-backend-redis-db=1;
-ddev magento setup:config:set --page-cache=redis --page-cache-redis-server=redis --page-cache-redis-db=2;
+ddev magento setup:config:set --session-save=redis --session-save-redis-host=redis --session-save-redis-log-level=3 --session-save-redis-db=0 --session-save-redis-port=6379 -n
+ddev magento setup:config:set --cache-backend=redis --cache-backend-redis-server=redis --cache-backend-redis-db=1 -n
+ddev magento setup:config:set --page-cache=redis --page-cache-redis-server=redis --page-cache-redis-db=2 -n
 ddev magento module:disable Magento_Csp Magento_TwoFactorAuth
 ddev magento cache:flush
 ddev redis-cli flushall

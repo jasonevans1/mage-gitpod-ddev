@@ -8,6 +8,7 @@ url="https://8080-"$url"/"
 cd ${GITPOD_REPO_ROOT}
 
 if [ "${INSTALL_MAGENTO}" = "YES" ]; then
+  sleep 15
   ddev redis-cli flushall
   ddev exec rm -rf /var/www/html/var/cache/ /var/www/html/generated/
   cp .gitpod/env.php app/etc/env.php

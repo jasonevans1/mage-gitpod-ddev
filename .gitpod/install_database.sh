@@ -8,10 +8,10 @@ url="https://8080-"$url"/"
 cd ${GITPOD_REPO_ROOT}
 
 if [ "${INSTALL_MAGENTO}" = "YES" ]; then
-  sleep 15
   ddev redis-cli flushall
   ddev exec rm -rf /var/www/html/var/cache/ /var/www/html/generated/
   cp .gitpod/env.php app/etc/env.php
+  composer require yireo/magento2-replace-inventory
   ddev magento setup:install --db-name='db' --db-user='db' --db-password='db' --base-url=$url --backend-frontname='admin' --admin-user=$MAGENTO_ADMIN_USERNAME --admin-password=$MAGENTO_ADMIN_PASSWORD --admin-email=$GITPOD_GIT_USER_EMAIL --admin-firstname='Admin' --admin-lastname='User' --use-rewrites='1' --use-secure='1' --base-url-secure=$url --use-secure-admin='1' --language='en_US' --db-host='db' --cleanup-database --timezone='America/Chicago' --currency='USD' --session-save='files' --search-engine='elasticsearch7' --elasticsearch-host='elasticsearch' --elasticsearch-port='9200';
   ddev magento deploy:mode:set developer
 fi

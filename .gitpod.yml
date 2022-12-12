@@ -17,7 +17,7 @@ tasks:
       chmod +x .gitpod/start_repo.sh
       .gitpod/start_repo.sh
       chmod +x .gitpod/install_database.sh
-      .gitpod/install_database.sh
+      test ! -f ${GITPOD_REPO_ROOT}/.gitpod/db-installed.flag && ${GITPOD_REPO_ROOT}/.gitpod/install_database.sh;
 
 vscode:
   extensions:

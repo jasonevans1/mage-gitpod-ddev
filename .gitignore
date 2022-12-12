@@ -29,3 +29,4 @@
 !/.gitpod/*
 !/.ddev
 !/.ddev/config.yaml
+/.gitpod/db-installed.flag

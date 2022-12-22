@@ -5,6 +5,9 @@ set -eu
 url=$(gp url | awk -F"//" {'print $2'}) && url+="/" &&
 url="https://8080-"$url"/"
 
+MAGENTO_EDITION="${MAGENTO_EDITION:='community'}"
+MAGENTO_VERSION="${MAGENTO_EDITION:='2.4.5-p1'}"
+
 cd ${GITPOD_REPO_ROOT}
 # Temporarily use an empty config.yaml to get ddev to use defaults
 # so we can do composer install. If there's already one there,

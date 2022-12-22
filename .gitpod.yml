@@ -8,16 +8,13 @@ tasks:
       ddev delete -Oy tmp
     command: |
       export DDEV_NONINTERACTIVE=true
-      export MAGENTO_ADMIN_USERNAME="admin" MAGENTO_ADMIN_PASSWORD="password1"
-      export MAGENTO_EDITION="community"
-      export MAGENTO_VERSION="2.4.5-p1"
       export INSTALL_MAGENTO="YES"
       export INSTALL_SAMPLE_DATA="YES"
       cd ${GITPOD_REPO_ROOT}
       chmod +x .gitpod/start_repo.sh
       .gitpod/start_repo.sh
       chmod +x .gitpod/install_magento.sh
-      test ! -f ${GITPOD_REPO_ROOT}/.gitpod/db-installed.flag && ${GITPOD_REPO_ROOT}/.gitpod/install_database.sh;
+      test ! -f ${GITPOD_REPO_ROOT}/.gitpod/db-installed.flag && ${GITPOD_REPO_ROOT}/.gitpod/install_magento.sh;
 
 vscode:
   extensions:

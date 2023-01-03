@@ -4,7 +4,7 @@ Spin up a Magento Open Source instance on Gitpod using ddev. Using [ddev](https:
 
 Or, with Adobe Commerce and/or Hyvä Themes in [3 simple steps](#getting-started).
 
-Note: This project is based on [magento-gitpod](https://github.com/fisheyehq/magento-gitpod) repository. Ths project uses ddev to manage the docker environment.
+Note: This project is based on [magento-gitpod](https://github.com/fisheyehq/magento-gitpod) repository.
 
 ## Overview
 

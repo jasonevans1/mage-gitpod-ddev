@@ -35,14 +35,15 @@ This repository contains a Gitpod configuration for a Magento 2 cloud environmen
 * Ensure you have the relevant license keys to hand (for Adobe Commerce and Hyvä Themes only)
 
 ### Magento Open Source:
-1. Click the 'Gitpod' button, or simply visit [https://gitpod.io/#https://github.com/jasonevans1/mage-gitpod-ddev](https://gitpod.io/#https://github.com/jasonevans1/mage-gitpod-ddev)
+1. Add variables to your account at [https://gitpod.io/variables](https://gitpod.io/variables) for `MAGENTO_COMPOSER_AUTH_USER` and `MAGENTO_COMPOSER_AUTH_PASS` with composer credentials that have access to Magento open source.
+2. Click the 'Gitpod' button, or simply visit [https://gitpod.io/#https://github.com/jasonevans1/mage-gitpod-ddev](https://gitpod.io/#https://github.com/jasonevans1/mage-gitpod-ddev)
 
 ### Adobe Commerce (installs the B2B extension):
 1. Create a free Gitpod account by linking your GitHub account: [https://gitpod.io/login/](https://gitpod.io/login/)
 2. Add variables to your account at [https://gitpod.io/variables](https://gitpod.io/variables) for `MAGENTO_EDITION` set to enterprise,  `MAGENTO_COMPOSER_AUTH_USER` and `MAGENTO_COMPOSER_AUTH_PASS` with composer credentials that have access to the Adobe Commerce repos and set the scope to `jasonevans1/mage-gitpod-ddev`\*
    3.Click the 'Gitpod' button, or simply visit [https://gitpod.io/#https://github.com/jasonevans1/mage-gitpod-ddev](https://gitpod.io/#https://github.com/jasonevans1/mage-gitpod-ddev)
 
-> \*Note: you must supply your own composer credentials to allow install of Adobe Commerce. The default credentials in this repo support Magento Open Source only.
+> \*Note: you must supply your own composer credentials to allow install of Adobe Commerce.
 
 ### Hyvä Themes (Magento Open Source):
 1. Create a free Gitpod account by linking your GitHub account: [https://gitpod.io/login/](https://gitpod.io/login/)

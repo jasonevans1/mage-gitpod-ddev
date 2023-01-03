@@ -8,8 +8,6 @@ tasks:
       ddev delete -Oy tmp
     command: |
       export DDEV_NONINTERACTIVE=true
-      export INSTALL_MAGENTO="YES"
-      export INSTALL_SAMPLE_DATA="YES"
       cd ${GITPOD_REPO_ROOT}
       chmod +x .gitpod/start_repo.sh
       .gitpod/start_repo.sh

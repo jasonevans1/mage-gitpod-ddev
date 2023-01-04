@@ -32,6 +32,12 @@ if [ ! -f bin/magerun2 ]; then
   ddev exec chmod +x bin/magerun2
 fi
 
+if [ -f ".gitpod/db-installed.flag" ]; then
+  #Update the base url in Magento if the db is installed. Base url can change when stopping and starting a gitpod workspace.
+  ddev magento setup:store-config:set --base-url="${url}"
+  ddev magento setup:store-config:set --base-url-secure="${url}"
+fi
+
 ddev get drud/ddev-redis
 ddev get drud/ddev-elasticsearch
 

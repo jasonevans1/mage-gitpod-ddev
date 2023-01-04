@@ -41,7 +41,7 @@ fi
 if [ "${INSTALL_MAGENTO}" = "NO" ] && [ -f ".gitpod/magento-db.sql.zip" ]; then
   ddev import-db --src=.gitpod/magento-db.sql.zip
 else
-  echo "No database was imported. No .gitpod/magento-db.sql.zip was provided and magedbm2 was not configured."
+  echo "No database was imported. No .gitpod/magento-db.sql.zip was provided."
 fi
 if [ -f ".gitpod/files.tgz" ]; then
   ddev import-files --src=.gitpod/files.tgz

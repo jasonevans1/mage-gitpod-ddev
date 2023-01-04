@@ -75,6 +75,11 @@ ddev is installed and configured within the gitpod.io environment. .gitpod.yml f
 * Elasticsearch and Redis containers are installed. See the .gitpod/start_repo.sh script
 * Run `ddev ssh` from the terminal to SSH to the nginx docker container.
 
+### xdebug
+Steps to enable xdebug:
+
+* Run command: `ddev xdebug on`
+* PHPStorm: Open Settings > PHP > Servers. Add a server with the name of the gitpod URL on port 80. Mapp the Magento root directory to `/var/www/html`. Start Listenting for debug connections.
 
 ### Overriding Environment Variables
 There are multiple ways to override environment variables, [which are outlined in this guide](https://www.gitpod.io/docs/environment-variables), and which option you should choose depends on whether you want to override the configuration for a specific environment only, or every environment you create with Gitpod.

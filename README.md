@@ -79,7 +79,17 @@ ddev is installed and configured within the gitpod.io environment. .gitpod.yml f
 Steps to enable xdebug:
 
 * Run command: `ddev xdebug on`
-* PHPStorm: Open Settings > PHP > Servers. Add a server with the name of the gitpod URL on port 80. Mapp the Magento root directory to `/var/www/html`. Start Listenting for debug connections.
+* PHPStorm: Open Settings > PHP > Servers. Add a server with the name of the gitpod URL on port 80. Map the Magento root directory to `/var/www/html`. Start Listenting for debug connections. See the ddev documentation for more information. https://ddev.readthedocs.io/en/stable/users/debugging-profiling/step-debugging/
+
+### blackfire.io
+Steps to enable blackfire.io for profiling
+
+* Run command: `ddev config global --web-environment-add="BLACKFIRE_SERVER_ID=<id>,BLACKFIRE_SERVER_TOKEN=<token>,BLACKFIRE_CLIENT_ID=<id>,BLACKFIRE_CLIENT_TOKEN=<token>` . Replacing the <id> and <token> with your blackfire credentials. Note: you only need the client_id and client_token set if you are profiling CLI commands.
+* Run command: `ddev blackfire on`
+* Use the blackfire.io browser extension to profile a Magento page on your gitpod workspace.
+* See the ddev documentation for more information. https://ddev.readthedocs.io/en/stable/users/debugging-profiling/blackfire-profiling/
+
+## Gitpod Notes
 
 ### Overriding Environment Variables
 There are multiple ways to override environment variables, [which are outlined in this guide](https://www.gitpod.io/docs/environment-variables), and which option you should choose depends on whether you want to override the configuration for a specific environment only, or every environment you create with Gitpod.

@@ -109,3 +109,17 @@ For example to install Magento 2.4.4 (managed by the `MAGENTO_VERSION` variable)
 [https://gitpod.io/#MAGENTO_VERSION=2.4.4,INSTALL_SAMPLE_DATA=NO/https://github.com/jasonevans1/mage-gitpod-ddev](https://gitpod.io/#MAGENTO_VERSION=2.4.4,INSTALL_SAMPLE_DATA=NO/https://github.com/jasonevans1/mage-gitpod-ddev)
 
 > Note: for security reasons, it is not recommended to pass sensitive information (such as composer credentials) as URL parameters. Always use the [https://gitpod.io/variables](https://gitpod.io/variables) page in your account instead.
+
+## Using mage-gitpod-ddev for an existing Magento project
+You could use this project as a starting point for running an existing Magento project on Gitpod using ddev. Here are the steps:
+
+* Copy the files into your existing Magento repository: .ddev/config.yaml, .gitpod/install_magento.sh, .gitpod/start_repo.sh, .gitpod.yml.
+* Change the .ddev/config.yaml and .gitpod.yml as needed.
+* Set these Gitpod environment variables `INSTALL_MAGENTO=NO`, `INSTALL_SAMPLE_DATA=NO`, `MAGENTO_EDITION=existing` and set the Magento/Hyva composer key variables as needed.
+* Commit a database dump here `.gitpod/magento-db.sql.zip` . This database dump will be imported on the initial start of the workspace.
+* Commit a `.gitpod/files.tgz` if you want to load media files.
+* Commit a composer.json and composer.lock file.
+* Customize .gitpod/install_magento.sh as needed. Example customizations: change how the database file is stored and loaded, change the magento settings on start. 
+* TODO: Add option to load an existing app/etc/env.php file on workspace start.
+
+

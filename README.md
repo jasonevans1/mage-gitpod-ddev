@@ -27,6 +27,13 @@ This repository contains a Gitpod configuration for a Magento 2 cloud environmen
 
 > Be aware that after 14 days of inactivity your environment will be deleted!
 
+## Roadmap
+* Add option to install Adobe Live Search and Product Recommendations to the Adobe Commerce build
+* Add option to install Varnish
+* Add option to install RabbitMQ
+* Add option to install Adobe Commerce CLI tools and configuration.
+* Add documentation for the following: cron, Mailhog for email, PHPUnit.
+
 ## Getting Started
 
 ### Prerequisites

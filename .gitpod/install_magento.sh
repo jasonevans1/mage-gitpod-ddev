@@ -62,10 +62,10 @@ ddev magento module:disable Magento_Csp Magento_TwoFactorAuth
 
 if [ "${MAGENTO_EDITION}" = "enterprise" ]; then
     ddev exec magerun2 config:store:set btob/website_configuration/company_active "1"
-    ddev exec magerun2 config:store:set btob/website_configuration/sharedcatalog_active "1"
-    ddev exec magerun2 config:store:set btob/website_configuration/negotiablequote_active "1"
-    ddev exec magerun2 config:store:set btob/website_configuration/quickorder_active "1"
-    ddev exec magerun2 config:store:set btob/website_configuration/requisition_list_active "1"
+    ddev exec magerun2 config:store:set btob/website_configuration/sharedcatalog_active "0"
+    ddev exec magerun2 config:store:set btob/website_configuration/negotiablequote_active "0"
+    ddev exec magerun2 config:store:set btob/website_configuration/quickorder_active "0"
+    ddev exec magerun2 config:store:set btob/website_configuration/requisition_list_active "0"
     ddev exec magerun2 config:store:set btob/default_b2b_payment_methods/available_payment_methods "braintree_ach_direct_debit,braintree_applepay,banktransfer,cashondelivery,checkmo,braintree,payflow_advanced,payflow_link,payflowpro,braintree_googlepay,braintree_local_payment,free,braintree_paypal,paypal_billing_agreement,payflow_express_bml,paypal_express_bml,paypal_express,payflow_express,hosted_pro,companycredit,purchaseorder,braintree_paypal_vault,braintree_cc_vault,payflowpro_cc_vault,braintree_venmo"
     ddev exec magerun2 config:store:set btob/default_b2b_shipping_methods/applicable_shipping_methods "0"
     ddev exec magerun2 config:store:set btob/website_configuration/purchaseorder_enabled "1"
